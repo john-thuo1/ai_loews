@@ -1,0 +1,31 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/loews
+    environment:
+      - DATABASE_ENGINE=django.db.backends.sqlite3
+      - DATABASE_NAME=/loews/db.sqlite3
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_EMAIL=${DB_EMAIL}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - SECRET_KEY=${SECRET_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=${DEBUG}
+    command: >
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py shell -c 'from django.contrib.auth.models import User; \
+      User.objects.filter(username=\"$DB_USERNAME\").exists() or User.objects.create_superuser(\"$DB_USERNAME\", \"$DB_EMAIL\", \"$DB_PASSWORD\")' && \
+      python manage.py runserver 0.0.0.0:3000"
+    container_name: project_loews
+
+    develop:
+      watch:
+        - path: /../requirements.txt
+          action: rebuild
+        - path: /../
+          target: /app
+          action: sync
