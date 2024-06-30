@@ -1,0 +1,5 @@
+coreapp/__pycache__
+loews/__pycache__
+coreapp/migrations
+media
+.env
