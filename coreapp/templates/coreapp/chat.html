@@ -1,0 +1,161 @@
+{% extends 'coreapp/base.html' %}
+{% load static %}
+
+{% block styles %}
+{% endblock %}
+
+
+{% block content %}
+<div class="chat-container">
+  <div class="card flex-grow-1">
+    {% if user.is_authenticated %}
+    <div class="card-header" style="background-color: #262B40; color: white;">
+        Welcome, {{ user.username }}
+    </div> 
+    {% endif %}
+
+    <div class="card-body messages-box">
+      <ul class="list-unstyled messages-list"> 
+        {% for chat in chats %}
+          {% if chat.user == request.user %}
+            <li class="message sent">
+          <div class="message-text">
+            <div class="message-sender">
+              <i class="fas fa-user"></i>
+              <b>You</b>
+            </div>
+            <div class="message-content mt-1">
+              {{chat.message}}
+            </div>
+          </div>
+        </li>
+
+        <li class="message received">
+          <div class="message-text">
+            <div class="message-sender mt-2">
+              <i class="fas fa-robot"></i>
+              <b>Loews Chatbot</b>
+            </div>
+            <div class="message-content mt-1">
+              {{ chat.response | linebreaks }}
+
+            </div>
+          </div>
+        </li>
+
+          {% endif %}
+        {% endfor %}
+        
+      </ul>
+      
+    </div>
+    <br><br>
+    <br><br>
+    <br><br>
+  </div>
+
+  <form class="message-form">
+    {% csrf_token %}
+    <div class="input-group">
+        <div class="col-md-6 pr-1 mt-2 me-2">
+            <input type="text" class="form-control message-input" placeholder="Enter Query on Locust Outbreak Mitigation here...">
+        </div>
+        <div class="input-group-append mt-2  me-2">
+            <button type="submit" class="btn btn-outline-success"><i class="fas fa-paper-plane me-2"></i>Send</button>
+        </div>      
+    </div>
+</form>
+
+
+
+
+</div>
+
+<script>
+  const messagesList = document.querySelector('.messages-list');
+  const messageForm = document.querySelector('.message-form');
+  const messageInput = document.querySelector('.message-input');
+
+  messageForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const message = messageInput.value.trim();
+    if (message.length === 0) {
+      return;
+    }
+
+    const messageItem = document.createElement('li');
+    messageItem.classList.add('message', 'sent');
+    messageItem.innerHTML = `
+        <div class="message-text">
+            <div class="message-sender">
+                <b>You</b>
+            </div>
+            <div class="message-content">
+                ${message}
+            </div>
+        </div>`;
+    messagesList.appendChild(messageItem);
+
+    messageInput.value = '';
+
+    fetch('', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+        'message': message
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        const response = data.response;
+        const messageItem = document.createElement('li');
+        messageItem.classList.add('message', 'received');
+        
+        // Format the response as bulleted or numbered list
+        const formattedResponse = formatResponse(response);
+        
+        messageItem.innerHTML = `
+        <div class="message-text">
+            <div class="message-sender">
+              <b>Loews Chatbot</b>
+            </div>
+            <div class="message-content">
+                ${formattedResponse}
+            </div>
+        </div>
+          `;
+        messagesList.appendChild(messageItem);
+      });
+  });
+
+  // Function to format response as bulleted or numbered list moved
+  function formatResponse(response) {
+  const lines = response.split('\n');
+  let formattedLines = [];
+
+  for (const line of lines) {
+    // Remove empty lines
+    if (line.trim() !== '') {
+      // Check if the line starts with a number or bullet point
+      const isNumbered = /^\s*\d+\.\s+/.test(line);
+      const isBulleted = /^\s*-\s+/.test(line);
+
+      // Add appropriate HTML markup
+      if (isNumbered) {
+        formattedLines.push(`<p>${line.trim()}</p>`);
+      } else if (isBulleted) {
+        formattedLines.push(`<p>${line.trim()}</p>`);
+      } else {
+        // Default to numbered list if the format is not detected
+        formattedLines.push(`<p>${line.trim()}</p>`);
+      }
+    }
+  }
+
+  return formattedLines.join('');
+}
+</script>
+
+{% endblock %}

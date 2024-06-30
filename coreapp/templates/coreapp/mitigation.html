@@ -1,0 +1,245 @@
+{% extends 'coreapp/base.html' %}
+
+{% block content %}
+
+
+<main class="container">
+  <div class="row g-3">
+
+    <!-- First Row - Three Cards -->
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <img src="\static\images\BioPesticides.jpg" class="card-img-top" alt="Bio Pesticides" />
+            <div class="card-body">
+                <h5 class="card-title"><strong>BioPesticides for locust control</strong></h5>
+                <p class="card-text">
+                    As the name suggests, biopesticides repurpose nature’s own tools and use them against pests. 
+                    One popular set of bio tools are microbes, meaning bacteria, fungi and viruses that affect critters...
+                </p>
+                <a href="https://reliefweb.int/report/kenya/biopesticides-locust-control" class="stretched-link" target="_blank" ></a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <img src="\static\images\HighlyharzadousPesticides.jpg" class="card-img-top" alt="Highly Harzadous Pesticides(HHPs)" style="height: 190px;" />
+            <div class="card-body">
+                <h5 class="card-title"><strong>Highly Harzadous Pesticides(HHPs)</strong></h5>
+                <p class="card-text">
+                    Pesticides are inherently hazardous, and among them, a relatively small number of Highly Hazardous Pesticides (HHPs) cause 
+                    disproportionate harm to environment and human health ...
+                </p>
+                <a href="https://www.unep.org/explore-topics/chemicals-waste/what-we-do/emerging-issues/highly-hazardous-pesticides-hhps" class="stretched-link" target="_blank"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <img src="\static\images\BiologicalControloflocustsandgrasshoppers.jpg" class="card-img-top" alt="Biological Control Of Locusts And Grasshoppers" style="height: 197px;"/>
+            <div class="card-body">
+                <h5 class="card-title"><strong>Biological Control Of Locusts And Grasshoppers</strong></h5>
+                <p class="card-text">
+                    Control of grasshoppers and locusts has traditionally relied on synthetic insecticides, and for emergency situations this is unlikely 
+                    to change...
+                </p>
+                <a href="https://www.annualreviews.org/doi/10.1146/annurev.ento.46.1.667" class="stretched-link" target="_blank"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Row - One Big Card + Four Vertically Stacked Cards -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <img src="\static\images\InsecticideUse.jpg" class="card-img-top" alt="Effective Management" />
+            <div class="card-body">
+                <h5 class="card-title"><strong>Lessons on how to effectively tackle insect invasions</strong></h5>
+                <p class="card-text">
+                    There are alternatives to pesticides including integrated pest management.
+                    This is an approach that doesn’t rule out the use of pesticides, but uses them as little as possible...<br>
+                    <br>By Esther Ndumi Ngumbi<br>
+                    Published: Monday 20 January 2020.
+                </p>
+                <a href="#!" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stacked Cards - Each Taking 35% of Height -->
+    <div class="col-lg-6 mt-5">
+      <div class="card-group">
+
+        <div class="card h-35 mb-4">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <strong>
+                        <i class="fab fa-youtube" style="color: #FF0000;"></i> How to Properly Mix Insecticide in a Backpack Sprayer
+                    </strong>
+                </h5>
+                <p class="card-text">In this video, learn how to properly mix insecticide in a backpack sprayer for effective pest control.</p>
+
+                <a href="https://www.youtube.com/watch?v=gZ_g-AEoDxU" class="stretched-link" target="_blank"></a>
+            </div>
+        </div>
+        
+   </div>
+
+       <div class="card h-35 mb-4">
+           <div class="card-body">
+               <h5 class="card-title"> 
+                <strong><i class="fab fa-youtube mr-2" style="color: #FF0000;" ></i>Desert Locust Outbreak Causes, Patterns, Effects (Keith Cressman, FAO Locust)
+                 </strong>
+            </h5>
+       
+               <p class="card-text">
+                Keith Cressman is the Senior Locust Forecasting Officer at the FAO. 
+                This is his keynote address at the 1st Virtual Practitioners Conference on Desert Locust Management (Aug 10, 2020)
+               </p>
+               <a href="https://www.youtube.com/watch?v=NQSDt7C-KLg" class="stretched-link" target="_blank"></a>
+           </div>
+       </div>
+
+       <div class="card h-35">
+         <div class="card-body">
+            <h5 class="card-title"> 
+                <strong><i class="fab fa-youtube mr-2" style="color: #FF0000;"></i>Why locusts are descending on East Africa
+
+                 </strong>
+            </h5>
+            <p class="card-text">
+                Since late 2019, East Africa and the Middle East have been experiencing their worst locust outbreaks in decades.
+                 A small locust swarm can eat more food than 35,000 people; 
+             </p>
+             <a href="https://www.youtube.com/watch?v=Vo61TiAGwhk" class="stretched-link" target="_blank"></a>
+         </div>
+     </div>
+   </div>
+
+
+
+  </div>
+
+
+  <section class="py-4 draggable">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-6 mx-auto text-center">
+                <h5 class="text-primary" style="font-weight: 400;"> <strong>Frequently Asked Questions(FAQs)</strong></h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="accordion" id="accordionRental">
+
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingThree">
+                            <button class="accordion-button border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                What are the main factors contributing to locust outbreaks?
+                            </button>
+                        </h5>
+                        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionRental">
+                            <div class="accordion-body text-sm opacity-8">
+                                Locust outbreaks are primarily influenced by environmental conditions.
+                                Factors such as favorable weather patterns, including rainfall and temperature, play a crucial role. Additionally, the presence of abundant green vegetation provides an ideal environment for locust breeding.
+                              <br>
+                              </div>
+                        </div>
+                    </div>
+                     
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How do locusts breed and reproduce?
+                            </button>
+                        </h5>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionRental">
+                            <div class="accordion-body text-sm opacity-8">
+                                Locusts undergo a life cycle that includes three main stages: egg, nymph, and adult. Female locusts lay their eggs in the soil, and when conditions are suitable, nymphs hatch. Nymphs go through several instars (growth stages) before reaching adulthood.
+                                Adult locusts then mate and lay eggs, completing the cycle.
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- FAQ 3 -->
+                     <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingOne">
+                            <button class="accordion-button border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                What are the different species of locusts, and how do they differ in terms of behavior, habitat, and geographic distribution?
+                            </button>
+                        </h5>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionRental">
+                            <div class="accordion-body text-sm opacity-8">
+                                Some notable locust species include:
+                                <br><br>
+                                • Desert Locust (Schistocerca gregaria)
+                                <br>
+                                &emsp;- Behavior: Desert locusts are known for their highly gregarious behavior, forming large swarms that can  &emsp;cover extensive areas.
+                                <br>
+                                &emsp;- Habitat: They primarily inhabit arid and semi-arid regions, preferring areas with sandy soils for  &emsp;oviposition (egg-laying).
+                                <br>
+                                &emsp;- Geographic Distribution: Found in regions of Africa, the Middle East, and Southwest Asia.
+                                <br>
+                                • Migratory Locust (Locusta migratoria)
+                                <br>
+                                &emsp;- Behavior: Migratory locusts are known for their long-distance flights and ability to form swarms,  &emsp;especially during migration.
+                                <br>
+                                &emsp;- Habitat: They inhabit a variety of environments, ranging from grasslands to agricultural areas.
+                                <br>
+                                &emsp;- Geographic Distribution: Found in Africa, Asia, Australia, and parts of Europe.
+                                <br>
+                                • Red Locust (Nomadacris septemfasciata)
+                                <br>
+                                &emsp;- Behavior: Red locusts are often solitary but can form swarms under certain conditions. They are known  &emsp;for their distinct red and black coloration.
+                                <br>
+                                &emsp;- Habitat: They prefer grasslands and open habitats.
+                                <br>
+                                &emsp;- Geographic Distribution: Found in parts of Africa, especially in the southern regions.
+                                <br><br>
+                                Understanding these distinctions in behavior, habitat preference, and geographic distribution is crucial for implementing targeted control measures and developing strategies to manage specific locust species.
+                                <br>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+              
+                    <!-- FAQ 4 -->
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingFifth">
+                            <button class="accordion-button border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                                What measures can be taken to prevent or control locust outbreaks?
+                            </button>
+                        </h5>
+                        <div id="collapseFifth" class="accordion-collapse collapse" aria-labelledby="headingFifth" data-bs-parent="#accordionRental">
+                            <div class="accordion-body text-sm opacity-8">
+                                Preventing locust outbreaks involves monitoring environmental conditions and implementing early detection systems.
+                                Control measures include the use of pesticides, biological control methods (such as natural predators), and agricultural practices that disrupt locust breeding, such as plowing the soil to expose and destroy egg pods.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</main>
+
+<style>
+  .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 0 10px 2px #262B40 !important;
+  }
+</style>
+
+{% endblock content%}

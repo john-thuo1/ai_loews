@@ -1,0 +1,234 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- Load up Bootstrap CSS CDN -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+      <!-- Our Custom CSS -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  
+  
+      <!-- Font Awesome JS -->
+      <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+   
+    {% if title %}
+      <title>{{ title }}</title>
+    {% else %}
+    <title>LOEWS- An early warning system </title>
+    {% endif %}
+</head>
+
+<body>
+  <div class="wrapper" style="display: flex; flex-direction: row;">
+
+    
+<!-- Sidebar  -->
+<nav id="sidebar" class="fixed-top" style="height: 100vh;">
+
+  <div class="sidebar-header">
+      <h3>LOEWS</h3>
+  </div>
+
+  <ul class="list-unstyled components">
+      <li class="active">
+          <a href="{% url 'map_predictions' %}" class="nav-item nav-link">
+              <i class="fas fa-home me-2"></i> Home
+          </a>
+      </li>
+      
+      <li>
+          <a href="{% url 'rag-chat' %}" class="nav-item nav-link">
+              <i class="fas fa-comments me-2"></i> RAG Chat
+          </a>
+      </li>
+
+      <li>
+          <a href="{% url 'dashboard' %}" class="nav-item nav-link">
+              <i class="fas fa-chart-bar me-2"></i> Analytics
+          </a>
+      </li>
+
+      <li>
+          <a href="{% url 'report' %}" class="nav-item nav-link">
+              <i class="fas fa-pencil-alt me-2"></i> Self Reporting
+          </a>
+      </li>
+
+      <li>
+        <a href="{% url 'mitigation' %}" class="nav-item nav-link">
+            <i class="fas fa-shield-alt me-2"></i> Mitigation strategies
+        </a>
+    </li>
+
+  </ul>
+
+  <ul class="list-unstyled CTAs">
+    <li>
+      <a href="#" class="download" data-bs-toggle="modal" data-bs-target="#exampleModal">Further Support?</a>
+  </li>
+  </ul>
+</nav>
+
+
+<!-- Contact Section Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header ">
+              <h6 class="modal-title text-center" id="exampleModalLabel" style="margin-left: 170px;"><b>Contact Loews!</b></h6>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form action="https://api.web3forms.com/submit" method="POST" >
+                <input type="hidden" name="access_key" value="e4983e8a-910f-4401-8f7d-46ed8d0cca60">
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                      <input type="text" name="name" id="form4Example1" class="form-control" required />
+                      <label class="form-label" for="form4Example1">Full Name</label>
+                  </div>
+
+                  <!-- Email input -->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                      <input type="email" name="email" id="form4Example2" class="form-control" required />
+                      <label class="form-label" for="form4Example2">Your Email address</label>
+                  </div>
+
+                  <!-- Message input -->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                      <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                      <label class="form-label" for="form4Example3">Message</label>
+                  </div>
+
+                
+
+                  <!-- Submit button -->
+                  <button data-mdb-ripple-init type="submit" class="btn btn-outline-success btn-block mb-4">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+    <!-- Page Content  -->
+      <div id="content" style="flex: 1; margin-left: 250px;">
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <!-- Search bar -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav me-auto">
+                <li class="nav-item" style="margin-left: 330px">
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" style="margin-left: 3px;">Search</button>
+                  </form>
+                </li>
+        
+                  <!-- Notification icon -->
+                  <li class="nav-item" style="margin-left: 130px;">
+                    <a class="nav-link" href="#">
+                      <i class="fas fa-bell fa-lg shake"></i>
+                    </a>
+                  </li>
+        
+                  <!-- Social Media Icons with spacing -->
+                  <li class="nav-item" style="margin-left: 20px;">
+                    <a class="nav-link" href="#">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </li>
+        
+                  <li class="nav-item" style="margin-left: 20px;">
+                    <a class="nav-link" href="https://www.linkedin.com/in/john-thuo-427210aa/" target="_blank">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item" style="margin-left: 20px;">
+                    <a class="nav-link" href="#">
+                      <i class="fas fa-user"></i>
+                    </a>
+                  </li>
+              
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+        <main role="main" class="container mb-5">
+          <div class="row">
+            <div class="col-md-12">
+            {% if messages %}
+                {%  for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+          
+            {% block content %}
+              {% comment %} other pages will override this block {% endcomment %}
+            
+            {% endblock %}
+            </div>
+          </div>
+        </main>
+              
+            <!-- Footer -->
+            <hr class="my-1">
+            <footer class="text-center text-lg-start bg-body-tertiary text-muted margin-left:10">
+
+              <div class="text-center p-3">
+                © 2024 Copyright:
+                <a class="text-reset fw-medium" href="#">LOEWS</a>
+              </div>
+
+            </footer>
+      </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        function filterCardBodies(event) {
+          const searchQuery = event.target.value.toLowerCase(); 
+      
+          const cardBodies = document.querySelectorAll('.card-body');
+      
+          cardBodies.forEach(function(card) {
+  
+            if (card.textContent.toLowerCase().includes(searchQuery)) {
+              card.parentNode.style.display = ''; 
+            } else {
+              card.parentNode.style.display = 'none'; 
+            }
+          });
+        }
+      
+        const searchBar = document.querySelector('input[type="search"]'); 
+        searchBar.addEventListener('input', filterCardBodies);
+      });
+      </script>
+      
+  </body>
+</html>
+

@@ -1,0 +1,146 @@
+{% extends 'coreapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h4 class="text-center">{{ table_title }}</h4>
+
+<!-- Disclaimer Section -->
+<div class="mt-4 alert alert-info">
+    <i class="fas fa-exclamation-circle"></i>
+    <strong>Disclaimer:</strong> The personal information collected will only be used as a means to contact the person
+    reporting the case for more information.
+</div>
+
+<div class="content-section">
+
+    <!-- Collapsible Form Section -->
+    <div class="card mt-4">
+        <div class="card-header" id="formHeading">
+            <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#formCollapse"
+                    aria-expanded="false" aria-controls="formCollapse">
+                    Toggle Form
+                </button>
+            </h5>
+        </div>
+
+        <div id="formCollapse" class="collapse" aria-labelledby="formHeading">
+            <div class="card-body">
+                <form method="post" , enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="form-group mt-2">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal to explain what the table is about  -->
+    <div class="modal fade" id="tableExplanation" tabindex="-1" aria-labelledby="tableExplanationLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tableExplanationLabel">Table Explanation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This table provides information about different organizations involved in locust outbreak &
+                        breeding grounds control and their mission summaries.
+                        Feel free to reach to them for more details on the same topic.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-light shadow-sm mt-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-centered table-nowrap table-hover mb-0 rounded">
+                    <thead class="thead-light">
+                        <tr>
+
+                            <th class="border-0">
+                                <!-- Button to trigger the modal -->
+                                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                    data-bs-target="#tableExplanation">
+                                    <span class="fas fa-question-circle"></span>
+                                </button>
+                            </th>
+                            <th class="border-0">Organization</th>
+                            <th class="border-0">Type</th>
+                            <th class="border-0">Location</th>
+                            <th class="border-0">Contact Information(TEL)</th>
+                            <th class="border-0">Mission Summary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Organization 1 -->
+                        <tr>
+                            <td class="border-0"><a href="#" class="text-primary font-weight-bold">1</a> </td>
+                            <td class="border-0 font-weight-bold">Food And Agriculture Organization(FAO)</td>
+                            <td class="border-0">
+                                UN Agency
+                            </td>
+                            <td class="border-0">
+                                Nairobi, Kenya
+                            </td>
+                            <td class="border-0">
+                                +254 20 76 25920
+                            </td>
+                            <td class="border-0">
+                                Implementing community-based locust control strategies
+                            </td>
+                        </tr>
+
+                        <!-- Organization 2 -->
+                        <tr>
+                            <td><a href="#" class="text-primary font-weight-bold">2</a> </td>
+                            <td class="font-weight-bold">Ministry of Agriculture, Livestock, Fisheries and Cooperatives</td>
+                            <td>
+                                Search / Organi
+                            </td>
+                            <td>
+                                Nairobi, Kenya
+                            </td>
+                            <td>
+                                +254 700 000 000
+                            </td>
+                            <td>
+                                Creating an enabling environment for Agricultural development
+                            </td>
+                        </tr>
+
+                        <!-- Organization 3 -->
+                        <tr>
+                            <td><a href="#" class="text-primary font-weight-bold">3</a> </td>
+                            <td class="font-weight-bold">ICIPE - International Centre of Insect Physiology and Ecology</td>
+                            <td>
+                                Research Institute
+                            </td>
+                            <td>
+                                Nairobi , Kenya
+                            </td>
+                            <td>
+                                +254 20 8632000
+                            </td>
+                            <td>
+                                Committed to developing and disseminating environmentally safe, affordable, acceptable and accessible tools and strategies to control insect pests and disease vectors.                            </td>
+                        </tr>
+
+                        <!-- End of Items -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
