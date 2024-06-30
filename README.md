@@ -39,6 +39,12 @@ The Chatbot Functionality is implemented using Retrieval Augmented Generation (R
 - ![Analytics Page](https://github.com/john-thuo1/loews/assets/108690517/e7c4a91f-ae5d-4165-a6c9-3eeb3ea5a255)
 - ![Chatbot Page](https://github.com/john-thuo1/loews/assets/108690517/eaecb147-dee4-4efc-9563-4897a64c054b)
 
+### Model Training & Optimization using mlflow
+You can use the parameters registered to train your RandomForest Model to obtain a similar model.
+![model tracking & registration](https://github.com/john-thuo1/ai_loews/assets/108690517/564ed5f1-697d-4ca2-9b0e-a41310de4c60)
+![model registered](https://github.com/john-thuo1/ai_loews/assets/108690517/37c86f28-4218-4c34-a862-d2c8995d17ac)
+
+
 
 ## Future Steps
 1. Set Up an Automated ETL Data Process preferably using Airflow. 
