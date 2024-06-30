@@ -48,6 +48,6 @@ You can use the parameters registered to train your RandomForest Model to obtain
 
 ## Future Steps
 1. Set Up an Automated ETL Data Process preferably using Airflow. 
-2. Implementing Realtime Predictions on the App with models running on AWS. Processing & Predictions have been made in the [Collab File](https://colab.research.google.com/drive/1ZmHPuyaNubCCN9yNE9ofV-_Z3FJKc0WQ?usp=sharing) and the Predicted Outputs mapped out in the Application for Visualization Purposes. 
+2. Implementing Realtime Predictions on the App with models running on AWS. Processing & Predictions have been made in the [Collab File](https://colab.research.google.com/drive/1ieuJfoAEtqtNDgAZYtEwhOOobt2EbDLc?usp=sharing) and the Predicted Outputs mapped out in the Application for Visualization Purposes. 
 3. Incorporate Multilanguage Support.
 4. Implement an efficient method of Referencing Chat Outputs for RAG. Currently , I have only included the PDF Source as my references. However, the References should refer to the exact text chunks extracted and the associated citations.
